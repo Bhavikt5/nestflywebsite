@@ -3532,17 +3532,11 @@
 
         <form onsubmit="handleBookingSubmit(event)">
           <div class="form-group">
-            <label for="flatChoice">Select Accommodation</label>
+            <label for="flatChoice">Select Room Sharing</label>
             <select id="flatChoice" class="form-control">
-              <option value="Flat 1 (Single Sharing)">
-                Flat 1 (Single Sharing)
-              </option>
-              <option value="Flat 2 (Double Sharing)">
-                Flat 2 (Double Sharing)
-              </option>
-              <option value="Flat 3 (Triple Sharing)">
-                Flat 3 (Triple Sharing)
-              </option>
+              <option value="Single Sharing">Single Sharing</option>
+              <option value="Double Sharing">Double Sharing</option>
+              <option value="Triple Sharing">Triple Sharing</option>
             </select>
           </div>
 
@@ -3641,8 +3635,16 @@
       function openBookingModal(flatTitle, price) {
         if (flatTitle) {
           const sel = document.getElementById("flatChoice");
+          const query = String(flatTitle).toLowerCase();
           for (let i = 0; i < sel.options.length; i++) {
-            if (sel.options[i].value.includes(flatTitle)) {
+            const val = sel.options[i].value.toLowerCase();
+            if (
+              val.includes(query) ||
+              query.includes(val) ||
+              (query.includes("1") && val.includes("single")) ||
+              (query.includes("2") && val.includes("double")) ||
+              (query.includes("3") && val.includes("triple"))
+            ) {
               sel.selectedIndex = i;
               break;
             }
