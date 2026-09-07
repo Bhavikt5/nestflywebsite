@@ -147,6 +147,12 @@
         white-space: nowrap;
         flex-shrink: 0;
       }
+      .hero-content .badge,
+      .flat-header-box .badge {
+        white-space: normal;
+        max-width: 100%;
+        line-height: 1.35;
+      }
       [data-theme="dark"] .badge {
         background: rgba(15, 118, 110, 0.3);
         color: #5eead4;
@@ -887,10 +893,22 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 1rem;
         padding: 1rem 1.25rem;
         background: var(--bg-card);
         border: 1px solid var(--border-color);
         border-radius: var(--radius-sm);
+      }
+
+      .proximity-item > div {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .proximity-item > span {
+        white-space: nowrap;
+        flex-shrink: 0;
+        text-align: right;
       }
 
       .map-card-box {
@@ -1218,7 +1236,11 @@
           padding: 2.5rem 0 4rem;
         }
         .hero-stats {
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: 1fr;
+          gap: 0.85rem;
+        }
+        .stat-item b {
+          white-space: normal;
         }
         .amenity-grid,
         .flat-spec-grid {
@@ -1230,9 +1252,17 @@
       }
 
       @media (max-width: 768px) {
+        .badge {
+          white-space: normal;
+          max-width: 100%;
+          line-height: 1.35;
+        }
         .hero-stats {
           grid-template-columns: 1fr;
           gap: 0.75rem;
+        }
+        .stat-item b {
+          white-space: normal;
         }
         .flat-header-box {
           flex-direction: column;
