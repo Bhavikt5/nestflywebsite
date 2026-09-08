@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nestfly Accommodation | Premium Co-Living & Student Housing</title>
+    <title>Nestfly Accommodation | Premium Paying Guest (PG) Accommodation in Mumbai</title>
     <meta
       name="description"
-      content="Nestfly Accommodation offers luxury co-living, student housing, and executive PG spaces. Explore Flat 1 (Single), Flat 2 (Double), and Flat 3 (Triple) with real photos, 3-time meals, Wi-Fi, and 24/7 security."
+      content="Nestfly Accommodation offers luxury co-living, student housing, and executive PG spaces. Explore Single Occupancy, Double Occupancy, and Triple Occupancy rooms with real photos, Wi-Fi, and 24/7 security."
     />
     <meta
       name="keywords"
@@ -147,8 +147,7 @@
         white-space: nowrap;
         flex-shrink: 0;
       }
-      .hero-content .badge,
-      .flat-header-box .badge {
+      .hero-content .badge {
         white-space: normal;
         max-width: 100%;
         line-height: 1.35;
@@ -259,7 +258,11 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 78px;
+        height: 82px;
+        max-width: 1400px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2rem;
       }
 
       .nav-brand {
@@ -268,28 +271,45 @@
         gap: 0.85rem;
         font-family: var(--font-heading);
         font-weight: 800;
-        font-size: 1.35rem;
+        font-size: 1.15rem;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+        text-decoration: none;
+        color: var(--text-main);
       }
 
       .nav-brand img {
-        height: 42px;
-        width: 42px;
+        height: 50px;
+        width: 50px;
         object-fit: contain;
-        border-radius: 10px;
+        border-radius: 12px;
+        flex-shrink: 0;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        transition: transform var(--transition-fast);
+      }
+
+      .nav-brand:hover img {
+        transform: scale(1.06);
       }
 
       .nav-links {
         display: flex;
         align-items: center;
-        gap: 2rem;
+        gap: 1.75rem;
         list-style: none;
+        margin: 0;
+        padding: 0;
       }
 
       .nav-links a {
         font-weight: 600;
-        font-size: 0.95rem;
+        font-size: 0.92rem;
         color: var(--text-muted);
-        transition: color var(--transition-fast);
+        transition: all var(--transition-fast);
+        padding: 0.35rem 0;
+        position: relative;
+        text-decoration: none;
+        white-space: nowrap;
       }
 
       .nav-links a:hover,
@@ -297,17 +317,29 @@
         color: var(--primary);
       }
 
+      .nav-links a.active::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--primary);
+        border-radius: 2px;
+      }
+
       .nav-actions {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 0.85rem;
+        flex-shrink: 0;
       }
 
       .theme-toggle {
         background: var(--bg-subtle);
         border: 1px solid var(--border-color);
-        width: 42px;
-        height: 42px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -320,6 +352,26 @@
       .theme-toggle:hover {
         background: var(--border-color);
         transform: rotate(15deg);
+      }
+
+      @media (min-width: 992px) and (max-width: 1280px) {
+        .nav-container {
+          padding: 0 1.25rem;
+        }
+        .nav-brand {
+          font-size: 1.02rem;
+          gap: 0.5rem;
+        }
+        .nav-brand img {
+          height: 44px;
+          width: 44px;
+        }
+        .nav-links {
+          gap: 1.1rem;
+        }
+        .nav-links a {
+          font-size: 0.86rem;
+        }
       }
 
       /* ==========================================================================
@@ -1004,8 +1056,8 @@
 
       .footer-grid {
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: 3rem;
+        grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
+        gap: 2.5rem;
         margin-bottom: 3rem;
       }
 
@@ -1292,17 +1344,29 @@
           min-width: auto;
         }
         .room-tabs {
-          width: 100%;
-          justify-content: space-between;
-          overflow-x: auto;
+          display: flex;
+          justify-content: center;
+          width: fit-content;
+          max-width: 100%;
+          gap: 0.35rem;
           padding: 0.35rem;
+          border-radius: var(--radius-full);
+          background: var(--bg-card);
+          margin-left: auto;
+          margin-right: auto;
         }
         .room-tab-btn {
           flex: 1;
+          white-space: nowrap;
           text-align: center;
           justify-content: center;
-          padding: 0.65rem 0.85rem;
-          font-size: 0.9rem;
+          padding: 0.65rem 1.25rem;
+          font-size: 0.92rem;
+          font-weight: 700;
+          border-radius: var(--radius-full);
+        }
+        .room-tab-btn svg {
+          display: inline-block;
         }
         .filmstrip-item {
           width: 85vw;
@@ -1330,7 +1394,21 @@
 
       @media (max-width: 640px) {
         .container {
-          padding: 0 1.15rem;
+          padding: 0 0.85rem;
+        }
+        .nav-container {
+          height: 74px;
+        }
+        .nav-brand {
+          font-size: clamp(0.72rem, 3.1vw, 0.95rem);
+          gap: 0.5rem;
+          letter-spacing: 0.01em;
+        }
+        .nav-brand img {
+          height: 46px;
+          width: 46px;
+          border-radius: 10px;
+          box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
         }
         .hero-content h1 {
           font-size: clamp(1.8rem, 6.5vw, 2.5rem);
@@ -1391,14 +1469,14 @@
       <div class="container nav-container">
         <a href="#" class="nav-brand">
           <img src="images/logo.png" alt="Nestfly Accommodation Logo" />
-          <span>Nestfly Accommodation</span>
+          <span>NESTFLY ACCOMMODATION</span>
         </a>
 
         <ul class="nav-links">
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#overview">Building Info</a></li>
-          <li><a href="#rooms">Room Tour</a></li>
-          <li><a href="#amenities">Amenities & Facilities</a></li>
+          <li><a href="#rooms">Explore Properties</a></li>
+          <li><a href="#amenities">Amenities</a></li>
           <li><a href="#location">Neighborhood</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
@@ -1461,7 +1539,7 @@
           <li>
             <a href="#overview" onclick="closeMobileMenu()">Building Info</a>
           </li>
-          <li><a href="#rooms" onclick="closeMobileMenu()">Room Tour</a></li>
+          <li><a href="#rooms" onclick="closeMobileMenu()">Explore Properties</a></li>
           <li>
             <a href="#amenities" onclick="closeMobileMenu()"
               >Amenities & Facilities</a
@@ -1493,16 +1571,14 @@
                   d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
                 />
               </svg>
-              Premium Student & Professional Co-Living
+              WELCOME TO NESTFLY
             </span>
             <h1>
-              Premium Co-Living Spaces
-              <em>Designed for Comfort & Convenience</em>
+              Premium Paying Guest (PG)
+              <em>Accommodation in Mumbai</em>
             </h1>
             <p class="hero-description">
-              Fully furnished Single, Double, and Triple sharing accommodation
-              with 500 Mbps Wi-Fi, daily housekeeping, and 24/7 security in the
-              city center.
+              Thoughtfully designed Paying Guest (PG) Accommodation tailored for students and working professionals. Enjoy fully furnished Single, Double, and Triple Occupancy rooms featuring modern interiors, seamless connectivity, and all-inclusive hassle-free living.
             </p>
 
             <div class="hero-actions">
@@ -1513,7 +1589,7 @@
                 Reserve Your Bed
               </button>
               <a href="#rooms" class="btn btn-outline btn-lg"
-                >Explore Flat Photos</a
+                >Explore Room Photos</a
               >
             </div>
 
@@ -1562,7 +1638,7 @@
                   </svg>
                 </div>
                 <div>
-                  <b>24/7 Security</b>
+                  <b>Round-the-Clock Security</b>
                   <span>CCTV & gated entrance</span>
                 </div>
               </div>
@@ -1585,8 +1661,8 @@
                   </svg>
                 </div>
                 <div>
-                  <b>500 Mbps Wi-Fi</b>
-                  <span>High-speed fiber & power</span>
+                  <b>High-Speed Fiber Wi-Fi</b>
+                  <span>Seamless internet & power backup</span>
                 </div>
               </div>
             </div>
@@ -1600,7 +1676,7 @@
             <div class="building-tag-overlay">
               <div>
                 <div style="font-weight: 700; font-size: 1rem">
-                  Nestfly Co-Living Hub
+                  Nestfly Paying Guest (PG) Hub
                 </div>
                 <div style="font-size: 0.8rem; color: #d6d3d1">
                   Modern Architecture & Gated Security
@@ -1629,133 +1705,17 @@
             >
               Designed for Stress-Free Daily Living
             </h2>
-            <p style="color: var(--text-muted); font-size: 1.05rem">
-              Nestfly Accommodation is a modern purpose-built co-living facility
-              designed to give working professionals and university students a
-              safe, peaceful, and clean environment.
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7">
+              NESTFLY ACCOMMODATION offers modern, comfortable, and secure
+              accommodation designed especially for students and working
+              professionals. Located in a prime area with excellent connectivity
+              to metro stations, offices, and the airport, it provides a
+              convenient lifestyle in the heart of Mumbai. The PG features
+              fully furnished rooms with options for single, double, and triple
+              sharing, along with essential amenities like AC, Wi-Fi,
+              housekeeping, and security.
             </p>
 
-            <div class="overview-facts-grid">
-              <div class="overview-fact-card">
-                <div class="overview-fact-icon">
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <rect x="3" y="3" width="18" height="18" rx="3" />
-                    <circle cx="12" cy="13" r="5" />
-                    <path d="M12 10a3 3 0 0 1 3 3" />
-                    <path d="M7 6h.01" />
-                    <path d="M11 6h.01" />
-                  </svg>
-                </div>
-                <div>
-                  <b>In-Flat Washer</b>
-                  <span
-                    style="
-                      font-size: 0.825rem;
-                      color: var(--text-muted);
-                      display: block;
-                    "
-                    >Washing machine & cleaning</span
-                  >
-                </div>
-              </div>
-
-              <div class="overview-fact-card">
-                <div class="overview-fact-icon">
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <circle cx="7.5" cy="15.5" r="4.5" />
-                    <path d="m21 2-9.6 9.6" />
-                    <path d="m15.5 7.5 3 3.5" />
-                  </svg>
-                </div>
-                <div>
-                  <b>Secure Entry</b>
-                  <span
-                    style="
-                      font-size: 0.825rem;
-                      color: var(--text-muted);
-                      display: block;
-                    "
-                    >24/7 CCTV & Gated entrance</span
-                  >
-                </div>
-              </div>
-
-              <div class="overview-fact-card">
-                <div class="overview-fact-icon">
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path
-                      d="m12 3-1.9 5.8a2 2 0 0 1-1.28 1.28L3 12l5.8 1.9a2 2 0 0 1 1.28 1.28L12 21l1.9-5.8a2 2 0 0 1 1.28-1.28L21 12l-5.8-1.9a2 2 0 0 1-1.28-1.28z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <b>Housekeeping</b>
-                  <span
-                    style="
-                      font-size: 0.825rem;
-                      color: var(--text-muted);
-                      display: block;
-                    "
-                    >Daily cleaning & linen wash</span
-                  >
-                </div>
-              </div>
-
-              <div class="overview-fact-card">
-                <div class="overview-fact-icon">
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                  </svg>
-                </div>
-                <div>
-                  <b>Power Backup</b>
-                  <span
-                    style="
-                      font-size: 0.825rem;
-                      color: var(--text-muted);
-                      display: block;
-                    "
-                    >24/7 Generator support</span
-                  >
-                </div>
-              </div>
-            </div>
           </div>
 
           <div
@@ -1783,7 +1743,7 @@
       <div class="container">
         <div class="section-header reveal">
           <span class="badge">Authentic Photo Tour</span>
-          <h2>Explore Flat 1, Flat 2 & Flat 3</h2>
+          <h2>Explore Properties</h2>
           <p>
             Browse real photos from our current room setups — equipped with AC,
             comfortable mattresses, and wardrobes.
@@ -1880,9 +1840,7 @@
                     flex-wrap: wrap;
                   "
                 >
-                  <span class="badge"
-                    >Flat 1 • Single, Double & Triple Sharing</span
-                  >
+                  <span class="badge badge-accent">Single, Double & Triple Sharing</span>
                   <span
                     class="badge"
                     style="background: rgba(16, 185, 129, 0.12); color: #059669"
@@ -1892,11 +1850,10 @@
                 <h3
                   style="font-size: 1.6rem; font-weight: 800; margin: 0.25rem 0"
                 >
-                  Flat 1 — Fully Furnished Co-Living
+                  Flat 1 — Single, Double & Triple Sharing
                 </h3>
                 <p style="color: var(--text-muted); font-size: 0.95rem">
-                  Available in Single Private, Double Sharing, and Triple
-                  Sharing room options with balcony access.
+                  Featuring Single Private, Double Sharing, and Triple Sharing room options with private balcony access, AC, and attached washroom.
                 </p>
               </div>
             </div>
@@ -1966,7 +1923,7 @@
                 </div>
                 <div class="flat-spec-text">
                   <b>Single, Double & Triple Beds</b>
-                  <span>Flexible sharing setups</span>
+                  <span>Flexible occupancy options</span>
                 </div>
               </div>
               <div class="flat-spec-card">
@@ -2084,8 +2041,8 @@
                   </svg>
                 </div>
                 <div class="flat-spec-text">
-                  <b>500 Mbps Wi-Fi & Housekeeping</b>
-                  <span>High-speed net & daily cleaning</span>
+                  <b>High-Speed Fiber Wi-Fi</b>
+                  <span>Daily housekeeping included</span>
                 </div>
               </div>
             </div>
@@ -2106,9 +2063,7 @@
                     flex-wrap: wrap;
                   "
                 >
-                  <span class="badge"
-                    >Flat 2 • Single, Double & Triple Sharing</span
-                  >
+                  <span class="badge badge-accent">Single, Double & Triple Sharing</span>
                   <span
                     class="badge"
                     style="background: rgba(16, 185, 129, 0.12); color: #059669"
@@ -2118,11 +2073,10 @@
                 <h3
                   style="font-size: 1.6rem; font-weight: 800; margin: 0.25rem 0"
                 >
-                  Flat 2 — Fully Furnished Co-Living
+                  Flat 2 — Single, Double & Triple Sharing
                 </h3>
                 <p style="color: var(--text-muted); font-size: 0.95rem">
-                  Available in Single Private, Double Sharing, and Triple
-                  Sharing room options with dual wardrobes.
+                  Featuring Single Private, Double Sharing, and Triple Sharing room options with dual wardrobes, AC, and attached washroom.
                 </p>
               </div>
             </div>
@@ -2192,7 +2146,7 @@
                 </div>
                 <div class="flat-spec-text">
                   <b>Single, Double & Triple Beds</b>
-                  <span>Flexible sharing setups</span>
+                  <span>Flexible occupancy options</span>
                 </div>
               </div>
               <div class="flat-spec-card">
@@ -2310,8 +2264,8 @@
                   </svg>
                 </div>
                 <div class="flat-spec-text">
-                  <b>500 Mbps Wi-Fi & Housekeeping</b>
-                  <span>High-speed net & daily cleaning</span>
+                  <b>High-Speed Fiber Wi-Fi</b>
+                  <span>Daily housekeeping included</span>
                 </div>
               </div>
             </div>
@@ -2332,9 +2286,7 @@
                     flex-wrap: wrap;
                   "
                 >
-                  <span class="badge"
-                    >Flat 3 • Single, Double & Triple Sharing</span
-                  >
+                  <span class="badge badge-accent">Single, Double & Triple Sharing</span>
                   <span
                     class="badge"
                     style="background: rgba(16, 185, 129, 0.12); color: #059669"
@@ -2344,11 +2296,10 @@
                 <h3
                   style="font-size: 1.6rem; font-weight: 800; margin: 0.25rem 0"
                 >
-                  Flat 3 — Fully Furnished Co-Living
+                  Flat 3 — Single, Double & Triple Sharing
                 </h3>
                 <p style="color: var(--text-muted); font-size: 0.95rem">
-                  Available in Single Private, Double Sharing, and Triple
-                  Sharing room options with personal storage.
+                  Featuring Single Private, Double Sharing, and Triple Sharing room options with personal lockers, AC, and attached washroom.
                 </p>
               </div>
             </div>
@@ -2448,7 +2399,7 @@
                 </div>
                 <div class="flat-spec-text">
                   <b>Single, Double & Triple Beds</b>
-                  <span>Flexible sharing setups</span>
+                  <span>Flexible occupancy options</span>
                 </div>
               </div>
               <div class="flat-spec-card">
@@ -2566,8 +2517,8 @@
                   </svg>
                 </div>
                 <div class="flat-spec-text">
-                  <b>500 Mbps Wi-Fi & Housekeeping</b>
-                  <span>High-speed net & daily cleaning</span>
+                  <b>High-Speed Fiber Wi-Fi</b>
+                  <span>Daily housekeeping included</span>
                 </div>
               </div>
             </div>
@@ -2635,9 +2586,9 @@
                 <line x1="12" y1="20" x2="12.01" y2="20" />
               </svg>
             </div>
-            <h3>500 Mbps Wi-Fi</h3>
+            <h3>High-Speed Fiber Wi-Fi</h3>
             <p style="color: var(--text-muted); font-size: 0.9rem">
-              High-speed fiber connectivity on every floor for work-from-home
+              Seamless fiber internet connectivity on every floor for work-from-home
               and online studies.
             </p>
           </div>
@@ -2658,9 +2609,9 @@
                 <path d="m9 12 2 2 4-4" />
               </svg>
             </div>
-            <h3>24/7 CCTV Security</h3>
+            <h3>Gated CCTV Surveillance</h3>
             <p style="color: var(--text-muted); font-size: 0.9rem">
-              24/7 CCTV monitoring across corridors, main entrance, and resident
+              Continuous monitoring across corridors, main entrance, and resident
               staff on call.
             </p>
           </div>
@@ -2730,9 +2681,9 @@
                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
               </svg>
             </div>
-            <h3>24/7 Power & Water</h3>
+            <h3>Uninterrupted Power & Water</h3>
             <p style="color: var(--text-muted); font-size: 0.9rem">
-              Continuous power backup generator support and 24/7 RO purified
+              Continuous power backup generator support and RO purified
               water supply.
             </p>
           </div>
@@ -3260,7 +3211,7 @@
           <div>
             <div class="nav-brand" style="margin-bottom: 1rem">
               <img src="images/logo.png" alt="Nestfly Accommodation Logo" />
-              <span>Nestfly</span>
+              <span>NESTFLY ACCOMMODATION</span>
             </div>
             <p
               style="
@@ -3269,8 +3220,7 @@
                 max-width: 320px;
               "
             >
-              Premium student and executive co-living accommodation with
-              comfort, cleanliness, and security.
+              Premium Paying Guest (PG) Accommodation for students and working professionals
             </p>
           </div>
 
@@ -3284,7 +3234,7 @@
                 margin-bottom: 1rem;
               "
             >
-              Flats
+              Locations
             </h4>
             <ul
               style="
@@ -3295,9 +3245,15 @@
                 color: var(--text-muted);
               "
             >
-              <li><a href="#rooms">Flat 1 (Single)</a></li>
-              <li><a href="#rooms">Flat 2 (Double)</a></li>
-              <li><a href="#rooms">Flat 3 (Triple)</a></li>
+              <li><a href="javascript:void(0)" onclick="openLocationModal('Andheri East')">Andheri East</a></li>
+              <li><a href="javascript:void(0)" onclick="openLocationModal('Andheri West')">Andheri West</a></li>
+              <li><a href="javascript:void(0)" onclick="openLocationModal('Goregaon East')">Goregaon East</a></li>
+              <li><a href="javascript:void(0)" onclick="openLocationModal('Goregaon West')">Goregaon West</a></li>
+              <li><a href="javascript:void(0)" onclick="openLocationModal('Santacruz East')">Santacruz East</a></li>
+              <li><a href="javascript:void(0)" onclick="openLocationModal('BKC')">BKC</a></li>
+              <li><a href="javascript:void(0)" onclick="openLocationModal('Vile Parle East')">Vile Parle East</a></li>
+              <li><a href="javascript:void(0)" onclick="openLocationModal('Vile Parle West')">Vile Parle West</a></li>
+              <li><a href="javascript:void(0)" onclick="openLocationModal('Powai')">Powai</a></li>
             </ul>
           </div>
 
@@ -3344,12 +3300,12 @@
               style="
                 list-style: none;
                 display: grid;
-                gap: 0.6rem;
+                gap: 0.75rem;
                 font-size: 0.9rem;
                 color: var(--text-muted);
               "
             >
-              <li>
+              <li style="display: flex; align-items: flex-start; gap: 0.5rem">
                 <svg
                   width="16"
                   height="16"
@@ -3360,17 +3316,17 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   style="
-                    vertical-align: middle;
-                    margin-right: 0.35rem;
                     color: var(--primary);
+                    flex-shrink: 0;
+                    margin-top: 0.25rem;
                   "
                 >
                   <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                Pearl Heaven Building, MIDC, Mumbai
+                <span>Pearl Heaven Building, MIDC, Mumbai</span>
               </li>
-              <li>
+              <li style="display: flex; align-items: center; gap: 0.5rem">
                 <svg
                   width="16"
                   height="16"
@@ -3381,21 +3337,20 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   style="
-                    vertical-align: middle;
-                    margin-right: 0.35rem;
                     color: var(--primary);
+                    flex-shrink: 0;
                   "
                 >
                   <path
                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
                   />
                 </svg>
-                +91 97696 96687
+                <a href="tel:+919769696687" style="color: inherit; text-decoration: none;">+91 97696 96687</a>
               </li>
-              <li>
+              <li style="display: flex; align-items: center; gap: 0.5rem">
                 <a
                   href="mailto:nestfly.accommodation@gmail.com"
-                  style="color: inherit; text-decoration: none;"
+                  style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap;"
                 >
                   <svg
                     width="16"
@@ -3407,18 +3362,17 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     style="
-                      vertical-align: middle;
-                      margin-right: 0.35rem;
                       color: var(--primary);
+                      flex-shrink: 0;
                     "
                   >
                     <rect x="2" y="4" width="20" height="16" rx="2" />
                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                   </svg>
-                  nestfly.accommodation@gmail.com
+                  <span>nestfly.accommodation@gmail.com</span>
                 </a>
               </li>
-              <li>
+              <li style="display: flex; align-items: center; gap: 0.5rem">
                 <svg
                   width="16"
                   height="16"
@@ -3429,16 +3383,15 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   style="
-                    vertical-align: middle;
-                    margin-right: 0.35rem;
                     color: var(--primary);
+                    flex-shrink: 0;
                   "
                 >
                   <path
                     d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
                   />
                 </svg>
-                WhatsApp Support
+                <a href="https://wa.me/919769696687" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">WhatsApp Support</a>
               </li>
             </ul>
           </div>
@@ -3515,7 +3468,7 @@
             margin-bottom: 1.5rem;
           "
         >
-          <h3>Book a Visit / Reserve Bed</h3>
+          <h3 id="modalTitleText">Book a Visit / Reserve Bed</h3>
           <button
             style="
               background: none;
@@ -3532,11 +3485,26 @@
 
         <form onsubmit="handleBookingSubmit(event)">
           <div class="form-group">
-            <label for="flatChoice">Select Room Sharing</label>
+            <label for="locationChoice">Preferred Location</label>
+            <select id="locationChoice" class="form-control">
+              <option value="Andheri East">Andheri East</option>
+              <option value="Andheri West">Andheri West</option>
+              <option value="Goregaon East">Goregaon East</option>
+              <option value="Goregaon West">Goregaon West</option>
+              <option value="Santacruz East">Santacruz East</option>
+              <option value="BKC">BKC</option>
+              <option value="Vile Parle East">Vile Parle East</option>
+              <option value="Vile Parle West">Vile Parle West</option>
+              <option value="Powai">Powai</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="flatChoice">Select Room & Occupancy Type</label>
             <select id="flatChoice" class="form-control">
-              <option value="Single Sharing">Single Sharing</option>
-              <option value="Double Sharing">Double Sharing</option>
-              <option value="Triple Sharing">Triple Sharing</option>
+              <option value="Single Sharing">Single Sharing (Private Room)</option>
+              <option value="Double Sharing">Double Sharing (2 Beds)</option>
+              <option value="Triple Sharing">Triple Sharing (3 Beds)</option>
             </select>
           </div>
 
@@ -3632,7 +3600,10 @@
 
       // Modal
       const modal = document.getElementById("bookingModal");
+
       function openBookingModal(flatTitle, price) {
+        const titleEl = document.getElementById("modalTitleText");
+        if (titleEl) titleEl.textContent = "Book a Visit / Reserve Bed";
         if (flatTitle) {
           const sel = document.getElementById("flatChoice");
           const query = String(flatTitle).toLowerCase();
@@ -3653,6 +3624,27 @@
         modal.classList.add("active");
       }
 
+      function openLocationModal(locationName) {
+        const titleEl = document.getElementById("modalTitleText");
+        if (titleEl && locationName) {
+          titleEl.textContent = "Inquire Rooms in " + locationName;
+        } else if (titleEl) {
+          titleEl.textContent = "Inquire Location Rooms";
+        }
+        if (locationName) {
+          const locSel = document.getElementById("locationChoice");
+          if (locSel) {
+            for (let i = 0; i < locSel.options.length; i++) {
+              if (locSel.options[i].value.toLowerCase() === locationName.toLowerCase()) {
+                locSel.selectedIndex = i;
+                break;
+              }
+            }
+          }
+        }
+        modal.classList.add("active");
+      }
+
       function closeBookingModal() {
         modal.classList.remove("active");
       }
@@ -3664,14 +3656,16 @@
       function handleBookingSubmit(e) {
         e.preventDefault();
 
+        const location = document.getElementById("locationChoice").value;
         const flat = document.getElementById("flatChoice").value;
         const name = document.getElementById("fullName").value;
         const phone = document.getElementById("contactNo").value;
         const moveDate = document.getElementById("moveDate").value;
 
         const text =
-          `Hi Nestfly Accommodation! I would like to book a visit / reserve a bed.\n\n` +
+          `Hi Nestfly Accommodation! I would like to inquire / book a room in *${location}*.\n\n` +
           `📋 *Reservation Details:*\n` +
+          `• *Location:* ${location}\n` +
           `• *Accommodation:* ${flat}\n` +
           `• *Name:* ${name}\n` +
           `• *Contact Number:* ${phone}\n` +
